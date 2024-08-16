@@ -1,0 +1,29 @@
+:host {
+  .navbar {
+    height: 80px;
+    background-color: transparent !important;
+    background-size: cover;
+  }
+  .navbar, .navbar-brand {
+    color: #FFFFFF;
+  }
+  .navbar-brand {
+    padding: 0;
+    img {
+      width: 5rem;
+    }
+  }
+  .tab-items {
+    gap: 10px;
+  }
+  .nav-buttons {
+    font-size: 14px;
+    color: #000;
+    background-color: #f5f5dc;
+    cursor: pointer;
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+}
