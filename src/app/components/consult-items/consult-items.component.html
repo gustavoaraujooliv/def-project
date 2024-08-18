@@ -1,0 +1,18 @@
+<section>
+  <div class="row m-0">
+    <mat-card-content class="card-content col-12">
+      <h5 class="card-title" [ngClass]="{ 'mb-0': hiddenFilters }">
+        <mat-icon
+          [matTooltip]="hiddenFilters ? 'Show filters' : 'Hide filters'"
+          (click)="handleHideFilters()"
+          >filter_list</mat-icon
+        >
+        Consult Item Filters
+      </h5>
+      <app-search-form
+        [ngClass]="{ 'display-none': hiddenFilters }"
+      ></app-search-form>
+    </mat-card-content>
+  </div>
+  <app-items-table></app-items-table>
+</section>

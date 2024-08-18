@@ -1,17 +1,7 @@
 <section>
   <div class="card-container">
     <mat-card class="card">
-      <div class="row m-0">
-        <mat-card-content class="card-content col-9">
-          <mat-card-title>Consult Item</mat-card-title>
-          <app-search-form></app-search-form>
-        </mat-card-content>
-        <mat-card-content class="card-content col-3">
-          <mat-card-title>Filters</mat-card-title>
-          <!-- <app-search-form></app-search-form> -->
-        </mat-card-content>
-      </div>
-      <app-items-table></app-items-table>
+      <router-outlet></router-outlet>
     </mat-card>
   </div>
 </section>

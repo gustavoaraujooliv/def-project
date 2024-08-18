@@ -1,0 +1,16 @@
+:host {
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    mat-icon {
+      cursor: pointer;
+    }
+  }
+  .card-content {
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+}

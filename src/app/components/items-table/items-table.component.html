@@ -23,7 +23,7 @@
   <ng-container matColumnDef="details">
     <th mat-header-cell *matHeaderCellDef> Details </th>
     <td mat-cell *matCellDef="let element" >
-      <mat-icon matTooltip="Details">search</mat-icon>
+      <mat-icon matTooltip="See details" (click)="seeItemDetails(element.code)">search</mat-icon>
     </td>
   </ng-container>
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterModule } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,6 +17,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ItemsTableComponent } from './components/items-table/items-table.component';
 import { MatTableModule } from '@angular/material/table';
+import { ConsultItemsComponent } from './components/consult-items/consult-items.component';
+import { ItemDetailsComponent } from './components/item-details/item-details.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { MatTableModule } from '@angular/material/table';
     HeaderComponent,
     SearchFormComponent,
     ItemsTableComponent,
+    ConsultItemsComponent,
+    ItemDetailsComponent
   ],
   imports: [
     BrowserModule,
