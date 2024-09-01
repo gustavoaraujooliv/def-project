@@ -1,23 +1,92 @@
 <section>
-  <form [formGroup]="form" class="row">
-    <mat-form-field class="col-3" matTooltip="Item code">
-      <mat-label>Item code</mat-label>
-      <input matInput placeholder="Item code" formControlName="itemCode" type="number">
+  <form [formGroup]="form">
+    <!-- <mat-form-field class="col-3" matTooltip="Procurar Item">
+      <mat-label>Procurar Item</mat-label>
+      <input
+        type="text"
+        placeholder="Procurar Item"
+        matInput
+        formControlName="item"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        @for (option of filteredOptions | async; track option) {
+        <mat-option [value]="option">{{ option }}</mat-option>
+        }
+      </mat-autocomplete>
     </mat-form-field>
-    <mat-form-field class="col-3" matTooltip="Item name">
-      <mat-label>Item name</mat-label>
-      <input matInput placeholder="Item name" formControlName="itemName" type="text">
+    <mat-form-field class="col-3" matTooltip="Carta">
+      <mat-label>Carta</mat-label>
+      <input type="text" matInput formControlName="card" />
     </mat-form-field>
-    <mat-form-field class="col-3" matTooltip="Item type">
-      <mat-label>Item type</mat-label>
-      <mat-select formControlName="itemType">
-        @for (itemType of itemTypes; track itemType) {
-          <mat-option [value]="itemType.id">{{itemType.value}}</mat-option>
+    <mat-form-field class="col-2" matTooltip="Refino">
+      <mat-label>Refino</mat-label>
+      <input type="number" matInput formControlName="refinement" />
+    </mat-form-field>
+    <mat-form-field class="col-2" matTooltip="Grade">
+      <mat-label>Grade</mat-label>
+      <mat-select formControlName="grade">
+        @for (grade of gradeOptions; track grade) {
+        <mat-option [value]="grade.id">{{ grade.grade }}</mat-option>
         }
       </mat-select>
     </mat-form-field>
-    <div class="col-3 btn-container">
-      <button mat-flat-button class="search-btn" matTooltip="Search">Search</button>
+    <div class="col-2 btn-container">
+      <button mat-flat-button class="search-btn" matTooltip="Search">
+        Search
+      </button>
+    </div> -->
+    <div class="row m-0 gap-5">
+      <mat-card-content class="card-content col-2" >
+        <h5
+          class="card-title"
+          [matTooltip]="hiddenFilters ? 'Show filters' : 'Hide filters'"
+          (click)="handleHideFilters()"
+        >
+          <mat-icon>filter_list</mat-icon>
+          Filtrar Itens
+        </h5>
+      </mat-card-content>
+      <mat-form-field class="col-9 mt-1 autocomplete" matTooltip="Procurar Item">
+        <mat-label>Procurar Item</mat-label>
+        <input
+          type="text"
+          placeholder="Procurar Item"
+          matInput
+          formControlName="item"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of filteredOptions | async; track option) {
+          <mat-option [value]="option">{{ option }}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    
+    <div class="row m-0" *ngIf="!hiddenFilters">
+      <mat-form-field class="col-3" matTooltip="Grade">
+        <mat-label>Grade</mat-label>
+        <mat-select formControlName="grade">
+          @for (grade of gradeOptions; track grade) {
+          <mat-option [value]="grade.id">{{ grade.grade }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-3" matTooltip="Refino">
+        <mat-label>Refino</mat-label>
+        <input type="number" matInput formControlName="refinement"/>
+        <mat-error *ngIf="form.controls['refinement'].errors?.['max']" style="color: #FFFFFF;">O nível de refino máximo é 20.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-3" matTooltip="Carta">
+        <mat-label>Carta</mat-label>
+        <input type="text" matInput formControlName="card" />
+      </mat-form-field>
+      <div class="col-3 btn-container">
+        <button mat-flat-button class="search-btn" matTooltip="Search">
+          Search
+        </button>
+      </div>
     </div>
   </form>
 </section>

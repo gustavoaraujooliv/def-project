@@ -46,8 +46,17 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: url("assets/images/rag_back_img.jpg");
+  background-size: cover;
+  overflow: hidden;
+  background-repeat: no-repeat;
 }
 
 .display-none {
   display: none;
+}
+
+.autocomplete {
+  .mdc-text-field--filled {
+    border-radius: 0.5rem;
+  }
 }

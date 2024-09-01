@@ -1,1 +1,54 @@
-<p>item-details works!</p>
+<section>
+  <div class="row gap-2 justify-content-evenly">
+    <mat-card-content class="card-content back-btn col-1" matTooltip="Go Back" (click)="goBack()">
+      <mat-icon>keyboard_backspace</mat-icon> 
+    </mat-card-content>
+    <mat-card-content class="card-content col-2" matTooltip="Preço">
+      <h6 class="price-title">
+        Preço
+        <mat-icon>{{ risingPrice ? 'trending_up' : 'trending_down' }}</mat-icon>
+      </h6>
+      <span [ngClass]="{
+        'item-price-rising': risingPrice,
+        'item-price-downfall': !risingPrice
+      }">{{ itemDetailData.price | currency: 'BRL' }}</span>
+    </mat-card-content>
+    <mat-card-content class="card-content col-2" matTooltip="Cartas">
+      <h6>
+        Cartas
+      </h6>
+      <button mat-button (click)="openCardsDetails()">
+        Ver cartas
+      </button>
+    </mat-card-content>
+    <mat-card-content class="card-content col-2" matTooltip="Refino">
+      <h6>
+        Refino
+      </h6>
+      <span>{{ itemDetailData.refinement }}</span>
+    </mat-card-content>
+    <mat-card-content class="card-content col-2" matTooltip="Grade">
+      <h6>
+        Grade
+      </h6>
+      <span [ngClass]="{
+        'bad-quality': itemDetailData.grade === 'D',
+        'medium-quality': itemDetailData.grade === 'C',
+        'good-quality': itemDetailData.grade === 'B',
+        'high-quality': itemDetailData.grade === 'A',
+      }">{{ itemDetailData.grade }}</span>
+    </mat-card-content>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <mat-card-content class="card-content cards" matTooltip="Preço">
+      <h5>Cartas associadas ao item</h5>
+      <mat-list class="list-container">
+        <mat-list-item class="list-item" *ngFor="let card of itemDetailData.cards">
+          <span matListItemTitle>Slot {{ card.slot }}</span>
+          <span matListItemLine>{{ card.name }}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </div>
+  <app-item-detail-chart [priceHistoryData]="priceHistory" [_itemName]="itemDetailData.name"></app-item-detail-chart>
+</section>

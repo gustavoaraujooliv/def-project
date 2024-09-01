@@ -1,6 +1,8 @@
 export interface IItemInfo {
-  code: number;
+  ID: number;
+  refinement: string;
+  grade: string;
   name: string;
-  type: string;
+  card: string;
   price: number;
 }

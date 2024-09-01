@@ -1,0 +1,15 @@
+:host {
+  .mat-mdc-dialog-actions {
+    justify-content: center !important;
+  }
+  .list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .list-item {
+    border: 1px solid #33333380;
+    border-radius: 10px;
+  }
+}

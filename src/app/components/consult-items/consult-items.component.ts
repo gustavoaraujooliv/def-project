@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './consult-items.component.scss'
 })
 export class ConsultItemsComponent {
-  public hiddenFilters = false;
+  public hiddenFilters = true;
 
   public handleHideFilters(): void {
     this.hiddenFilters = !this.hiddenFilters;

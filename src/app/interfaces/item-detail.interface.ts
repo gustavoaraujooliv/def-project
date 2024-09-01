@@ -1,8 +1,11 @@
+import { ICardData } from "./card-data.interface";
+
 export interface IItemDetail {
-  code: number;
+  id: number;
   name: string;
-  type: string;
-  actualPrice: string;
-  quality: string;
-  priceHistory: Array<string>;
+  grade: string;
+  refinement: number;
+  cards: Array<ICardData>;
+  price: number;
+  currency: string;
 }

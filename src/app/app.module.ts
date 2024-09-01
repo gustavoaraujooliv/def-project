@@ -19,6 +19,17 @@ import { ItemsTableComponent } from './components/items-table/items-table.compon
 import { MatTableModule } from '@angular/material/table';
 import { ConsultItemsComponent } from './components/consult-items/consult-items.component';
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
+import { CurrencyPipe } from '@angular/common';
+import { ItemDetailChartComponent } from './components/item-detail-chart/item-detail-chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CardsDetailsComponent } from './components/cards-details/cards-details.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -28,7 +39,9 @@ import { ItemDetailsComponent } from './components/item-details/item-details.com
     SearchFormComponent,
     ItemsTableComponent,
     ConsultItemsComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    ItemDetailChartComponent,
+    CardsDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +55,19 @@ import { ItemDetailsComponent } from './components/item-details/item-details.com
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    NgxChartsModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
+    MatExpansionModule,
+    MatMenuModule,
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatListModule,
+    ScrollingModule
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [provideAnimationsAsync(), CurrencyPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
