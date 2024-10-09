@@ -1,46 +1,10 @@
 <section>
   <form [formGroup]="form">
-    <!-- <mat-form-field class="col-3" matTooltip="Procurar Item">
-      <mat-label>Procurar Item</mat-label>
-      <input
-        type="text"
-        placeholder="Procurar Item"
-        matInput
-        formControlName="item"
-        [matAutocomplete]="auto"
-      />
-      <mat-autocomplete #auto="matAutocomplete">
-        @for (option of filteredOptions | async; track option) {
-        <mat-option [value]="option">{{ option }}</mat-option>
-        }
-      </mat-autocomplete>
-    </mat-form-field>
-    <mat-form-field class="col-3" matTooltip="Carta">
-      <mat-label>Carta</mat-label>
-      <input type="text" matInput formControlName="card" />
-    </mat-form-field>
-    <mat-form-field class="col-2" matTooltip="Refino">
-      <mat-label>Refino</mat-label>
-      <input type="number" matInput formControlName="refinement" />
-    </mat-form-field>
-    <mat-form-field class="col-2" matTooltip="Grade">
-      <mat-label>Grade</mat-label>
-      <mat-select formControlName="grade">
-        @for (grade of gradeOptions; track grade) {
-        <mat-option [value]="grade.id">{{ grade.grade }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-    <div class="col-2 btn-container">
-      <button mat-flat-button class="search-btn" matTooltip="Search">
-        Search
-      </button>
-    </div> -->
     <div class="row m-0 gap-5">
       <mat-card-content class="card-content col-2" >
         <h5
           class="card-title"
-          [matTooltip]="hiddenFilters ? 'Show filters' : 'Hide filters'"
+          [matTooltip]="hiddenFilters ? 'Mostrar filtros' : 'Esconder filtros'"
           (click)="handleHideFilters()"
         >
           <mat-icon>filter_list</mat-icon>
@@ -57,8 +21,8 @@
           [matAutocomplete]="auto"
         />
         <mat-autocomplete #auto="matAutocomplete">
-          @for (option of filteredOptions | async; track option) {
-          <mat-option [value]="option">{{ option }}</mat-option>
+          @for (option of autocompleteOptions | async; track option) {
+          <mat-option [value]="option" (onSelectionChange)="filterTableData($event)">{{ option }}</mat-option>
           }
         </mat-autocomplete>
       </mat-form-field>
@@ -73,7 +37,7 @@
           }
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="col-3" matTooltip="Refino">
+      <mat-form-field class="col-2" matTooltip="Refino">
         <mat-label>Refino</mat-label>
         <input type="number" matInput formControlName="refinement"/>
         <mat-error *ngIf="form.controls['refinement'].errors?.['max']" style="color: #FFFFFF;">O nível de refino máximo é 20.</mat-error>
@@ -82,9 +46,14 @@
         <mat-label>Carta</mat-label>
         <input type="text" matInput formControlName="card" />
       </mat-form-field>
-      <div class="col-3 btn-container">
-        <button mat-flat-button class="search-btn" matTooltip="Search">
-          Search
+      <div class="col-2 btn-container">
+        <button mat-flat-button class="search-btn" matTooltip="Filtrar" (click)="handleFiltersValue()">
+          Filtrar
+        </button>
+      </div>
+      <div class="col-2 btn-container">
+        <button mat-flat-button class="clean-btn" matTooltip="Limpar" (click)="emitCleanFiltersValue()">
+          Limpar
         </button>
       </div>
     </div>

@@ -6,6 +6,6 @@ export interface IItemDetail {
   grade: string;
   refinement: number;
   cards: Array<ICardData>;
-  price: number;
+  price: string;
   currency: string;
 }

@@ -13,6 +13,6 @@
     </mat-card-content>
     <app-search-form *ngIf="!hiddenFilters"></app-search-form>
   </div> -->
-  <app-search-form></app-search-form>
-  <app-items-table></app-items-table>
+  <app-search-form [itemsData]="initialTableData" (emitAutocompleteValue)="handleAutocompletValue($event)" (emitFiltersValue)="handleFiltersValue($event)"></app-search-form>
+  <app-items-table [tableData]="filteredTableData"></app-items-table>
 </section>

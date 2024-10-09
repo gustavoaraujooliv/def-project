@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IItemDetail } from '../../interfaces/item-detail.interface';
 import { IPriceData } from '../../interfaces/price-data.interface';
-import { MatDialog } from '@angular/material/dialog';
-import { CardsDetailsComponent } from '../cards-details/cards-details.component';
 
 @Component({
   selector: 'app-item-details',
@@ -15,7 +13,7 @@ export class ItemDetailsComponent implements OnInit {
   public risingPrice = false;
   public priceHistory!: Array<IPriceData>;
 
-  constructor(private _activeRoute: ActivatedRoute, private _router: Router, public dialog: MatDialog) {}
+  constructor(private _activeRoute: ActivatedRoute, private _router: Router) {}
 
   ngOnInit(): void {
     this._activeRoute.params.subscribe((value) => {
@@ -25,7 +23,7 @@ export class ItemDetailsComponent implements OnInit {
       id: 178,
       name: 'Poenitentia Nervus',
       refinement: 11,
-      price: 154.5,
+      price: '124',
       grade: 'C',
       cards: [
         {
@@ -54,15 +52,15 @@ export class ItemDetailsComponent implements OnInit {
     this.priceHistory = [
       {
         date: '28/01/2024',
-        value: 120.5,
+        value: 120,
       },
       {
         date: '28/02/2024',
-        value: 119.5,
+        value: 119,
       },
       {
         date: '28/03/2024',
-        value: 154.5,
+        value: 154,
       },
     ],
     this._checkPriceStatus();
@@ -87,13 +85,5 @@ export class ItemDetailsComponent implements OnInit {
 
   public goBack(): void {
     this._router.navigateByUrl('consult');
-  }
-
-  public openCardsDetails(): void {
-    this.dialog.open(CardsDetailsComponent, {
-      data: {
-        cards: this.itemDetailData.cards
-      }
-    });
   }
 }

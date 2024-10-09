@@ -26,10 +26,10 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { CardsDetailsComponent } from './components/cards-details/cards-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { TransformCurrencyPipe } from './helpers/transform-currency.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     ConsultItemsComponent,
     ItemDetailsComponent,
     ItemDetailChartComponent,
-    CardsDetailsComponent
+    TransformCurrencyPipe
   ],
   imports: [
     BrowserModule,

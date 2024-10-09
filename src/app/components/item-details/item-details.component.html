@@ -11,15 +11,15 @@
       <span [ngClass]="{
         'item-price-rising': risingPrice,
         'item-price-downfall': !risingPrice
-      }">{{ itemDetailData.price | currency: 'BRL' }}</span>
+      }">{{ itemDetailData.price | transformCurrency }}</span>
     </mat-card-content>
-    <mat-card-content class="card-content col-2" matTooltip="Cartas">
+    <mat-card-content class="card-content col-2" matTooltip="ID">
       <h6>
-        Cartas
+        ID
       </h6>
-      <button mat-button (click)="openCardsDetails()">
-        Ver cartas
-      </button>
+      <span>
+        {{ itemDetailData.id }}
+      </span>
     </mat-card-content>
     <mat-card-content class="card-content col-2" matTooltip="Refino">
       <h6>
@@ -40,7 +40,7 @@
     </mat-card-content>
   </div>
   <div class="row justify-content-center mt-4">
-    <mat-card-content class="card-content cards" matTooltip="Preço">
+    <mat-card-content class="card-content cards" matTooltip="Cartas">
       <h5>Cartas associadas ao item</h5>
       <mat-list class="list-container">
         <mat-list-item class="list-item" *ngFor="let card of itemDetailData.cards">

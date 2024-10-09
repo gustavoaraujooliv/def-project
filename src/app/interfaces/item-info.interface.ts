@@ -1,6 +1,6 @@
 export interface IItemInfo {
   ID: number;
-  refinement: string;
+  refinement: number;
   grade: string;
   name: string;
   card: string;

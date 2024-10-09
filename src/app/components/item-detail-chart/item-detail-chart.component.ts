@@ -53,7 +53,6 @@ export class ItemDetailChartComponent implements OnInit {
 
   private _prepareChartData(): void {
     this.priceHistoryData.forEach((priceData) => {
-      console.log(priceData);
       this.dateArray?.push(priceData.date);
       this.valueArray?.push(priceData.value);
     });
